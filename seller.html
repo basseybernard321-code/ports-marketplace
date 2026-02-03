@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seller Dashboard</title>
 
+<style>
+body { font-family:Arial; background:#f4f6f8; padding:20px; }
+.box { background:#fff; max-width:400px; margin:auto; padding:20px; border-radius:12px; }
+input, select, button {
+  width:100%; padding:10px; margin-top:10px;
+}
+button {
+  background:#2563eb; color:#fff; border:none; border-radius:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h3>Add Product</h3>
+
+  <input id="name" placeholder="Product name">
+  <input id="price" placeholder="Price ($)">
+  
+  <select id="category">
+    <option value="streaming">Streaming</option>
+  </select>
+
+  <button onclick="addProduct()">Add Product</button>
+</div>
+
+<script>
+function addProduct(){
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+
+  products.push({
+    name: document.getElementById("name").value,
+    price: document.getElementById("price").value,
+    category: document.getElementById("category").value
+  });
+
+  localStorage.setItem("products", JSON.stringify(products));
+  alert("Product added!");
+}
+</script>
+
+</body>
+</html>

@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
 
+<style>
+body{font-family:Arial;background:#f4f6f8;padding:20px}
+.box{background:#fff;max-width:500px;margin:auto;padding:20px;border-radius:12px}
+.item{display:flex;justify-content:space-between;margin:10px 0}
+button{background:red;color:#fff;border:none;padding:5px 10px;border-radius:10px}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h3>Admin – Products</h3>
+  <div id="list"></div>
+</div>
+
+<script>
+const list = document.getElementById("list");
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+function render(){
+  list.innerHTML="";
+  products.forEach((p,i)=>{
+    list.innerHTML+=`
+      <div class="item">
+        <span>${p.name} – $${p.price}</span>
+        <button onclick="del(${i})">Delete</button>
+      </div>
+    `;
+  });
+}
+
+function del(i){
+  products.splice(i,1);
+  localStorage.setItem("products",JSON.stringify(products));
+  render();
+}
+
+render();
+</script>
+
+</body>
+</html>

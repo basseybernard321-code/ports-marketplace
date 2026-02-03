@@ -1,11 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Ports Marketplace</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ports Marketplace</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f8}
+header{
+  background:#0f172a;
+  color:#fff;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header a{color:#fff;text-decoration:none;margin-left:15px}
+.hero{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:#fff;
+  padding:50px 20px;
+  text-align:center;
+}
+.grid{
+  padding:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.card a{
+  display:inline-block;
+  margin-top:10px;
+  background:#2563eb;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:25px;
+  text-decoration:none;
+}
+</style>
 </head>
+
 <body>
-  <h1>Ports Marketplace is Live 🚀</h1>
-  <p>If you see this, GitHub Pages is working.</p>
+
+<header>
+  <strong>Ports Marketplace</strong>
+  <nav>
+    <a href="login.html">Login</a>
+    <a href="seller.html">Sell</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Buy Digital Services Securely</h2>
+  <p>Streaming • VPN • Social Media • Software</p>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <h3>🎬 Streaming</h3>
+    <p>Netflix, Spotify, Prime</p>
+    <a href="streaming.html">Browse</a>
+  </div>
+
+  <div class="card">
+    <h3>🔐 VPN Premium</h3>
+    <p>Surfshark, HMA, PIA</p>
+    <a href="vpn.html">Browse</a>
+  </div>
+
+  <div class="card">
+    <h3>📣 Social Media</h3>
+    <p>Growth & management</p>
+    <a href="social.html">Browse</a>
+  </div>
+</section>
+
 </body>
 </html>

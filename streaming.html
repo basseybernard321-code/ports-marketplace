@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streaming Accounts</title>
 
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f8}
+header{background:#0f172a;color:#fff;padding:15px;text-align:center}
+.list{padding:25px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.item{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  text-align:center;
+}
+.item img{width:60px;height:60px;object-fit:contain}
+.item span{display:block;margin:10px 0;font-weight:bold;color:#2563eb}
+.item a{
+  display:inline-block;
+  background:#2563eb;
+  color:#fff;
+  padding:8px 18px;
+  border-radius:20px;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Streaming Accounts</h2>
+  <p>Premium subscriptions</p>
+</header>
+
+<section class="list" id="list"></section>
+
+<script>
+const logos={
+  Netflix:"https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg",
+  Spotify:"https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg",
+  Amazon:"https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+};
+
+const list=document.getElementById("list");
+const products=JSON.parse(localStorage.getItem("products"))||[
+  {name:"Netflix Premium",price:5},
+  {name:"Spotify Premium",price:3},
+  {name:"Amazon Prime",price:4}
+];
+
+products.forEach(p=>{
+  let logo="";
+  if(p.name.includes("Netflix")) logo=logos.Netflix;
+  if(p.name.includes("Spotify")) logo=logos.Spotify;
+  if(p.name.includes("Amazon")) logo=logos.Amazon;
+
+  list.innerHTML+=`
+    <div class="item">
+      <img src="${logo}">
+      <h4>${p.name}</h4>
+      <span>$${p.price}</span>
+      <a href="checkout.html?item=${p.name}&price=${p.price}">Buy</a>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>

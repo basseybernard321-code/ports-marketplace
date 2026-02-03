@@ -1,46 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
-
-<style>
-body { font-family:Arial; background:#f4f6f8; padding:30px; }
-.box { background:#fff; max-width:400px; margin:auto; padding:20px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,.1); }
-button { width:100%; padding:10px; background:#2563eb; color:#fff; border:none; border-radius:20px; margin-top:15px; }
-.success { display:none; text-align:center; color:green; }
-</style>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="box" id="checkoutBox">
-  <h3>Checkout</h3>
-  <p id="item"></p>
-  <p><strong id="price"></strong></p>
+<h2>Checkout</h2>
 
-  <label><input type="radio" checked> Card</label><br>
-  <label><input type="radio"> Bank Transfer</label><br>
-  <label><input type="radio"> Crypto</label>
+<div class="card">
+  <p><b>Product:</b> Selected Item</p>
+  <p><b>Price:</b> $10</p>
 
   <button onclick="pay()">Pay Now</button>
 </div>
 
-<div class="box success" id="successBox">
-  <h3>Payment Successful ✅</h3>
-  <p>Your order is being processed</p>
-  <a href="index.html">Go Home</a>
-</div>
-
 <script>
-const params = new URLSearchParams(window.location.search);
-document.getElementById("item").innerText = "Item: " + params.get("item");
-document.getElementById("price").innerText = "Price: $" + params.get("price");
-
 function pay(){
-  document.getElementById("checkoutBox").style.display="none";
-  document.getElementById("successBox").style.display="block";
+  alert("Payment Successful ✅ (Demo)");
+  window.location.href = "index.html";
 }
 </script>
 
